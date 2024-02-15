@@ -7,15 +7,18 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - 8080:81
+      - "80:81"
     depends_on:
       - wordpress1
       - wordpress2
       - wordpress3
     networks:
       - mynetwork
+    labels:
+      - "traefik.enable=false"
 
   wordpress1:
+    container_name: wordpress1
     image: wordpress
     ports:
       - "8081:80"
@@ -28,8 +31,11 @@ services:
       - wordpress:/var/www/html
     networks:
       - mynetwork
+    labels:
+      - "traefik.enable=false"
 
   wordpress2:
+    container_name: wordpress2
     image: wordpress
     ports:
       - "8082:80"
@@ -42,8 +48,11 @@ services:
       - wordpress:/var/www/html
     networks:
       - mynetwork
+    labels:
+      - "traefik.enable=false"
 
   wordpress3:
+    container_name: wordpress3
     image: wordpress
     ports:
       - "8083:80"
@@ -56,6 +65,8 @@ services:
       - wordpress:/var/www/html
     networks:
       - mynetwork
+    labels:
+      - "traefik.enable=false"
 
   db:
     image: mysql:5.7
