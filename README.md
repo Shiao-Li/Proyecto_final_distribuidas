@@ -1,1 +1,5 @@
-# Proyecto_final_distribuidas
+# Proyecto final distribuidas
+
+### Integrantes:
+* Chasi Alexis
+* Shiao Roberto
